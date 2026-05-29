@@ -1,0 +1,23 @@
+{
+  "updatedAt": "2026-05-29T00:00:00.000Z",
+  "projects": [
+    {
+      "name": "Monitor",
+      "description": "Local dashboard that detects every AI agent running on this machine (Claude Code, Codex, Cursor, Gemini), persists their memory across sessions via XTrace, and provides a GPT-4o orchestrator to manage them all through a single chat interface.",
+      "stage": "building",
+      "tasks": [
+        "Agent fleet detection via process scanning",
+        "XTrace memory persistence across sessions",
+        "GPT-4o orchestrator with tool use"
+      ],
+      "href": null
+    },
+    {
+      "name": "stanford-xtrace",
+      "description": "XTrace integration — persistent memory layer for AI agents.",
+      "stage": "exploring",
+      "tasks": [],
+      "href": null
+    }
+  ]
+}

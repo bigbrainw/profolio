@@ -1,4 +1,14 @@
-const projects = [
+import currentWork from "@/data/current-work.json";
+
+const STAGE_LABEL: Record<string, string> = {
+  exploring: "exploring",
+  building: "building",
+  debugging: "debugging",
+  shipping: "shipping",
+  shipped: "shipped",
+};
+
+const hackathonProjects = [
   {
     title: "Diabeteasy",
     desc: "Smart insole monitoring foot pressure to prevent diabetic ulcers.",
@@ -67,6 +77,13 @@ const skills = [
 ];
 
 export default function Home() {
+  const { projects: currentProjects, updatedAt } = currentWork;
+  const lastUpdated = new Date(updatedAt).toLocaleDateString("en-US", {
+    month: "short",
+    day: "numeric",
+    year: "numeric",
+  });
+
   return (
     <main className="max-w-2xl mx-auto px-6 py-20 pb-32">
 
@@ -105,6 +122,48 @@ export default function Home() {
         </p>
       </section>
 
+      {/* Currently Building */}
+      <section className="mb-16">
+        <div className="flex items-baseline justify-between mb-5 pb-2 border-b border-gray-200">
+          <h2 className="font-mono text-xs tracking-widest uppercase text-gray-400">
+            Currently Building
+          </h2>
+          <span className="font-mono text-[10px] text-gray-300">updated {lastUpdated}</span>
+        </div>
+        <ul className="flex flex-col gap-5">
+          {currentProjects.map((p) => (
+            <li key={p.name} className="flex flex-col gap-1.5">
+              <div className="flex items-center gap-2">
+                <span className="text-base">{p.name}</span>
+                <span className="font-mono text-[10px] tracking-widest uppercase text-gray-400 border border-gray-300 px-1.5 py-0.5 leading-none">
+                  {STAGE_LABEL[p.stage] ?? p.stage}
+                </span>
+              </div>
+              <p className="text-sm text-gray-500 italic">{p.description}</p>
+              {p.tasks.length > 0 && (
+                <ul className="mt-1 flex flex-col gap-0.5">
+                  {p.tasks.map((t) => (
+                    <li key={t} className="font-mono text-xs text-gray-400 before:content-['→_']">
+                      {t}
+                    </li>
+                  ))}
+                </ul>
+              )}
+              {p.href && (
+                <a
+                  href={p.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-mono text-xs underline underline-offset-2 hover:opacity-40 transition-opacity w-fit"
+                >
+                  view →
+                </a>
+              )}
+            </li>
+          ))}
+        </ul>
+      </section>
+
       {/* Skills */}
       <section className="mb-16">
         <h2 className="font-mono text-xs tracking-widest uppercase text-gray-400 mb-5 pb-2 border-b border-gray-200">
@@ -122,13 +181,13 @@ export default function Home() {
         </ul>
       </section>
 
-      {/* Projects */}
+      {/* Hackathon Projects */}
       <section>
         <h2 className="font-mono text-xs tracking-widest uppercase text-gray-400 mb-5 pb-2 border-b border-gray-200">
           Projects
         </h2>
         <ul>
-          {projects.map((p, i) => (
+          {hackathonProjects.map((p, i) => (
             <li
               key={i}
               className="flex items-baseline justify-between gap-4 py-4 border-b border-gray-100 first:border-t first:border-gray-200"
