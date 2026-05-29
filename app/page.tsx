@@ -1,65 +1,166 @@
-import Image from "next/image";
+const projects = [
+  {
+    title: "Diabeteasy",
+    desc: "Smart insole monitoring foot pressure to prevent diabetic ulcers.",
+    href: "https://devpost.com/software/diabeteasy",
+    winner: true,
+  },
+  {
+    title: "CleanMars",
+    desc: "Robot-based autonomous trash collection system.",
+    href: "https://devpost.com/software/cleanmars",
+    winner: true,
+  },
+  {
+    title: "NeuroSync",
+    desc: "Productivity timer using EEG to adapt to real-time brain focus levels.",
+    href: "https://devpost.com/software/neurosync-n3x9aq",
+    winner: false,
+  },
+  {
+    title: "Mind+",
+    desc: "A new way to interact with agents — your brain, but optimized.",
+    href: "https://devpost.com/software/neurofocus-myvzab",
+    winner: false,
+  },
+  {
+    title: "asthmaornah",
+    desc: "Wearable detecting early asthma attack signs via sound and breathing pattern analysis.",
+    href: "https://devpost.com/software/asthmaornot",
+    winner: false,
+  },
+  {
+    title: "WTF — What the Fold",
+    desc: "Predicts amino acid mutation frequency and protein structure effects.",
+    href: "https://devpost.com/software/wtf-what-the-fold",
+    winner: false,
+  },
+  {
+    title: "qwkly",
+    desc: "Video editing tool powered by AI.",
+    href: "https://devpost.com/software/qwkly",
+    winner: false,
+  },
+  {
+    title: "Hello Fridge",
+    desc: "Kitchen app identifying food, generating recipes, and promoting sustainability.",
+    href: "https://devpost.com/software/hello-fridge-owaz4k",
+    winner: false,
+  },
+  {
+    title: "beat bash",
+    desc: "Music rhythm game that runs in the terminal.",
+    href: "https://devpost.com/software/tbd-eokyi2",
+    winner: false,
+  },
+  {
+    title: "Calories Calculator",
+    desc: "Image-based food recognition and nutritional content estimator.",
+    href: "https://devpost.com/software/calories-calculator",
+    winner: false,
+  },
+];
+
+const skills = [
+  "Python", "JavaScript", "TypeScript", "HTML / CSS",
+  "SQL", "Bash", "Linux", "Django", "Flask", "PostgreSQL", "Kali",
+];
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
+    <main className="max-w-2xl mx-auto px-6 py-20 pb-32">
+
+      {/* Header */}
+      <header className="mb-20">
+        <h1 className="text-4xl font-serif font-normal tracking-tight mb-2">Elijah Chen</h1>
+        <p className="text-sm text-gray-500 italic mb-5">Yu-Hong Elijah Chen</p>
+        <nav className="flex gap-5 font-mono text-sm">
           <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
+            href="https://devpost.com/Journalwere"
             target="_blank"
             rel="noopener noreferrer"
+            className="underline underline-offset-4 hover:opacity-40 transition-opacity"
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
+            Devpost
           </a>
           <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
+            href="https://www.linkedin.com/in/yu-hong-elijah-chen-47553931a/"
             target="_blank"
             rel="noopener noreferrer"
+            className="underline underline-offset-4 hover:opacity-40 transition-opacity"
           >
-            Documentation
+            LinkedIn
           </a>
-        </div>
-      </main>
-    </div>
+        </nav>
+      </header>
+
+      {/* About */}
+      <section className="mb-16">
+        <h2 className="font-mono text-xs tracking-widest uppercase text-gray-400 mb-5 pb-2 border-b border-gray-200">
+          About
+        </h2>
+        <p className="text-base leading-relaxed max-w-lg">
+          Builder interested in biosensors, AI tools, and systems at the edge of hardware and software.
+          I ship things at hackathons and keep going from there.
+        </p>
+      </section>
+
+      {/* Skills */}
+      <section className="mb-16">
+        <h2 className="font-mono text-xs tracking-widest uppercase text-gray-400 mb-5 pb-2 border-b border-gray-200">
+          Skills
+        </h2>
+        <ul className="flex flex-wrap gap-2">
+          {skills.map((s) => (
+            <li
+              key={s}
+              className="font-mono text-xs border border-gray-300 px-2.5 py-1"
+            >
+              {s}
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      {/* Projects */}
+      <section>
+        <h2 className="font-mono text-xs tracking-widest uppercase text-gray-400 mb-5 pb-2 border-b border-gray-200">
+          Projects
+        </h2>
+        <ul>
+          {projects.map((p, i) => (
+            <li
+              key={i}
+              className="flex items-baseline justify-between gap-4 py-4 border-b border-gray-100 first:border-t first:border-gray-200"
+            >
+              <div className="min-w-0">
+                <div className="flex items-center gap-2">
+                  <span className="text-base">{p.title}</span>
+                  {p.winner && (
+                    <span className="font-mono text-[10px] tracking-widest uppercase border border-black px-1.5 py-0.5 leading-none">
+                      Winner
+                    </span>
+                  )}
+                </div>
+                <p className="text-sm text-gray-500 italic mt-1">{p.desc}</p>
+              </div>
+              <a
+                href={p.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-mono text-xs whitespace-nowrap border-b border-black pb-px hover:opacity-40 transition-opacity shrink-0"
+              >
+                view →
+              </a>
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      {/* Footer */}
+      <footer className="mt-20 font-mono text-xs text-gray-400">
+        elijah0904@gmail.com
+      </footer>
+    </main>
   );
 }
